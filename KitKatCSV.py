@@ -8,14 +8,13 @@ import time
 from threading import Thread
 
 from classifiers.Classifier import ThresholdClassifier
-from settings import PORT, FILENAME, TIMESTAMP
-
+from settings import PORT, FILENAME, TIMESTAMP, FOLDER
 
 Channels = 180
 Taxels = 36
 NumRowCol = 6
 NumPads = 5
-file_name = FILENAME + TIMESTAMP() + ".csv"
+file_name = FOLDER + "/" + FILENAME + TIMESTAMP() + ".csv"
 
 # **********************USER DEFINED VALUES END******************#
 
@@ -31,7 +30,7 @@ arrows = []
 data = []
 word = []
 
-average = []
+baseline_average = []
 
 
 def serial_port_init():  # Serial port initializations
@@ -83,7 +82,7 @@ def thread1():
 
 
 def classify_touch_no_touch(raw_count):
-    classifier = ThresholdClassifier(threshold)
+    classifier = ThresholdClassifier(baseline_average)
     return classifier.classify(raw_count)
 
 
@@ -98,7 +97,7 @@ if __name__ == "__main__":
     i = 0
     count = 0
     input_val = np.zeros((100, Channels))
-    average = np.zeros(Channels)
+    baseline_average = np.zeros(Channels)
 
     print("calibrating serial data...")
     while index < 100:
@@ -119,9 +118,8 @@ if __name__ == "__main__":
         for index in range(100):
             total = input_val[index][i] + total
         average_val = total / 100
-        average[i] = average_val
+        baseline_average[i] = average_val
         # min[i] = min_val
-    threshold = average * 0.99
     print("serial data calibrated")
 
     thread = Thread(target=thread1)

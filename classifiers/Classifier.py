@@ -4,8 +4,8 @@ class Classifier:
 
 
 class ThresholdClassifier(Classifier):
-    def __init__(self, thresholds):
-        self.thresholds = thresholds
+    def __init__(self, baseline, rate=0.95):
+        self.thresholds = baseline * rate
 
     def classify(self, test_data):
         touched = False
@@ -13,3 +13,8 @@ class ThresholdClassifier(Classifier):
             if rc < self.thresholds[j]:
                 touched = True
         return touched
+
+
+class RandomForestClassifier(Classifier):
+    def __init__(self, baseline, rate=0.99):
+        self.thresholds = baseline * rate
