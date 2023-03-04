@@ -1,6 +1,7 @@
 import csv
 import traceback
 
+from pynput import keyboard
 import numpy as np
 import serial
 import time
@@ -32,6 +33,8 @@ word = []
 
 baseline_average = []
 
+key_pressed = ""
+
 
 def serial_port_init():  # Serial port initializations
     ser = serial.Serial(
@@ -47,6 +50,23 @@ def serial_port_init():  # Serial port initializations
 
 
 def thread1():
+    # key_pressed = ' '
+    def on_press(key):
+        global key_pressed
+        key_pressed = key.char
+
+    def on_release(key):
+        global key_pressed
+        print('{0} released'.format(
+            key))
+        key_pressed = ' '
+
+    listener = keyboard.Listener(
+        on_press=on_press,
+        on_release=on_release)
+    listener.start()
+
+    prev_touched = 0
     while True:  # this will not block other functions since it is on a different thread
         line = ser.readline()
         raw_count = []
@@ -70,7 +90,13 @@ def thread1():
 
         try:
             touched = classify_touch_no_touch(raw_count)
+            if touched == 1 and prev_touched == 0:
+                print("touched")
+            if touched == 0 and prev_touched == 1:
+                print("not touched")
+            prev_touched = touched
             data_set.insert(Channels + 1, int(touched))
+            data_set.insert(Channels + 2, key_pressed)
             data_set.insert(0, time.time())
 
             with open(file_name, 'a+', newline='') as csvfile:
@@ -126,4 +152,3 @@ if __name__ == "__main__":
     print("starting data collection... writing data to " + file_name)
     thread.start()
     time.sleep(0.01)
-

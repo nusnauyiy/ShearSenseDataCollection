@@ -1,6 +1,6 @@
 import datetime
 
-PORT = '/dev/tty.usbmodem1303'
+PORT = '/dev/tty.usbmodem111103'
 FOLDER = 'data'
 FILENAME = "test"
 
