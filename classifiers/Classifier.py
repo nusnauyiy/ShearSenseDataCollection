@@ -4,7 +4,7 @@ class Classifier:
 
 
 class ThresholdClassifier(Classifier):
-    def __init__(self, baseline, rate=0.99):
+    def __init__(self, baseline, rate=0.97):
         self.thresholds = baseline * rate
 
     def classify(self, test_data):

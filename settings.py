@@ -1,10 +1,12 @@
 import datetime
+import random
 
-PORT = '/dev/tty.usbmodem111103'
+PORT = 'COM6'
 FOLDER = 'data'
-FILENAME = "test"
-
+#FILENAME = "Pilot-pillow-allgestures-not-covered-SS-DM-3"
+FILENAME = "P6_Mar16th2023_FLAT "
+LABEL_LENGTH = 12.0
 
 def TIMESTAMP():
     now = datetime.datetime.now()
-    return now.strftime("%m-%d %H:%M")
+    return now.strftime("%H_%M_%S")

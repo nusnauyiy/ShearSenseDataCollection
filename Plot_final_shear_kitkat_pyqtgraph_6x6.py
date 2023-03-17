@@ -49,7 +49,7 @@ average = []
 
 def serial_port_init():     # Serial port initializationst
     ser = serial.Serial(
-    port= '/dev/tty.usbmodem1201',
+    port= 'COM6',
     baudrate=500000,
     timeout = None,
     parity=serial.PARITY_NONE,

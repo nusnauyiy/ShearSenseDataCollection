@@ -1,0 +1,4 @@
+1. go into director in powershell: C:\Users\SPIN\Documents\ShearSense 2023\SensorCode\ShearSenseDataCollection>
+2. type in the following command, the two process will take the same key from the keyboard:
+
+Start-Process python .\KitKatCSV.py; Start-Process python .\KitKatCSV2.py
