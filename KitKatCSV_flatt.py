@@ -12,7 +12,7 @@ from threading import Thread
 import pyqtgraph as pg
 from pyqtgraph import QtCore, QtGui, QtWidgets
 from classifiers.Classifier import ThresholdClassifier
-from settings import PORT, FILENAME, TIMESTAMP, FOLDER, LABEL_LENGTH
+from settings import PORT_FLAT, FILENAME, TIMESTAMP, FOLDER, LABEL_LENGTH
 import sys
 from threading import Timer
 
@@ -20,7 +20,7 @@ Channels = 180
 Taxels = 36
 NumRowCol = 6
 NumPads = 5
-file_name = FOLDER + "/" + FILENAME + TIMESTAMP() + ".csv"
+file_name = FOLDER + "/" + FILENAME + TIMESTAMP() + "_FLAT.csv"
 
 # **********************USER DEFINED VALUES END******************#
 
@@ -46,7 +46,7 @@ key_pressed = ''
 
 def serial_port_init():  # Serial port initializations
     ser = serial.Serial(
-        port=PORT,
+        port=PORT_FLAT,
         baudrate=500000,
         timeout=None,
         parity=serial.PARITY_NONE,
