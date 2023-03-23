@@ -15,6 +15,7 @@ from classifiers.Classifier import ThresholdClassifier
 from settings import PORT_PILLOW, FILENAME, TIMESTAMP, FOLDER, LABEL_LENGTH
 import sys
 from threading import Timer
+import winsound
 
 Channels = 180
 Taxels = 36
@@ -64,6 +65,7 @@ def thread1():
         global key_pressed
         print('{0} released'.format(key_pressed))
         key_pressed=''
+        winsound.Beep(1000, 100)
         
 
     def on_press(key):
