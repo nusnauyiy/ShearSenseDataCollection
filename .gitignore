@@ -2,3 +2,20 @@
  __pycache__/
  *.mp4
  *.jpg
+ modelling/video_data
+ demo
+ *.npy
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+ 10
+ 11
+ 12
+ .ipynb_checkpoints
+ *.ipynb
