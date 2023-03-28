@@ -1,0 +1,1 @@
+The files `cnn.py`, `cnn_util.py`, `config.py` are adapted from  GSNCode's repository: https://github.com/GSNCodes/Video-Classification-Using-DeepLearning-TensorFlow
