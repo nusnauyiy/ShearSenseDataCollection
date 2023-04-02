@@ -5,7 +5,7 @@ PORT_FLAT = 'COM11'
 PORT_PILLOW = 'COM6'
 FOLDER = 'data'
 #FILENAME = "Pilot-pillow-allgestures-not-covered-SS-DM-3"
-FILENAME = "P12 -Mar22 "
+FILENAME = "P18_3_0401 "
 LABEL_LENGTH = 12.0
 
 def TIMESTAMP():

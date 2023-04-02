@@ -10,7 +10,7 @@ import time
 import math
 from threading import Thread
 import pyqtgraph as pg
-from pyqtgraph import QtCore, QtGui, QtWidgets
+from pyqtgraph import QtCore, QtGui, QtWidgets 
 from classifiers.Classifier import ThresholdClassifier
 from settings import PORT_PILLOW, FILENAME, TIMESTAMP, FOLDER, LABEL_LENGTH
 import sys
