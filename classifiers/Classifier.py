@@ -14,14 +14,3 @@ class ThresholdClassifier(Classifier):
                 touched = True
         return touched
 
-#
-# class RandomForestClassifier(Classifier):
-#     def __init__(self):
-#         # self.model = ?
-#         # want to load a pretrained model
-#
-#     def classify(self, test_data):
-#         pass
-#
-#
-#     def classify(self):
