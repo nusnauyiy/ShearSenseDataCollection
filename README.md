@@ -11,7 +11,7 @@ The data collection software is responsible for collecting the raw serial data c
 ## Features and Interpretation of the Software Output
 ### Visualization of serial data
 
-Each visualization session is an animation that changes according to the action being performned on the sensor. A charonological sequence of which demonstrating constant touch from a participant is shown below:
+Each visualization session is an animation that changes according to the action being performned on the sensor. A chronological sequence of which demonstrating constant touch from a participant is shown below:
 
 ![Software viz 1](img/image_54.png)
 ![Software viz 2](img/image_61.png)
@@ -28,17 +28,16 @@ The file directory and filename for the data can be specified in the software co
 
 - The data collected by the software has a total of 183 columns, with each column containing a specific type of information about the touch data being collected.
 - The first column of the data represents the timestamp for each row of data, indicating the exact time at which the touch data was recorded.
-- Columns 2-181 of the data represent the raw data for each individual taxel on the touch sensor array.
+- Columns 2-181 of the data represent the raw data for each individual taxel on the touch sensor array. Every 5 columns represents information for one taxel, with the third column representing pressure channel and the rest representing shear channels. 
 - Column 182 of the data contains a touch/no-touch classification represented by "1"/"0", which indicates whether or not each taxel is currently being touched.
 - Column 183 of the data contains a numeric or letter label, this can be used for indicating the current gesture being performed at that time. The label is saved as an ASCII code.
 
 The first row of the data represents the baseline state of the touch sensor array, and only columns 2-181 are populated with data. This baseline data is collected after the first few seconds the software started up, ideally the sensor is not being touched at the time. All subsequent rows shows raw serial data collected by the sensor at the specified timestamp, and all 183 columns should be populated.
 
 An example of a data row that does not represent the baseline is shown below (with 175 raw count columns omitted):
-
 ```"1679540771.16605","1183.0","1232.0","1249.0", ... ,"1435.0","1373.0","1","103"```
 
-We can see that this data row is collected on Thursday, March 23, 2023 3:06:11 AM GMT. The sensor was touched at the moment and the gesture labelled "g" was being collected.
+From the first column, we can see that this data row is collected on Thursday, March 23, 2023 3:06:11 AM GMT. The second to last column tells us that the sensor was touched at the moment, and the last column tells us that the gesture labelled "g" was being collected. The remaining columns correspond to the raw count values of each channels at that time.
 
 
 ### Requirements
